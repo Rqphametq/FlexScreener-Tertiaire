@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexScreener | Tilt Energy</title>
+    <!-- Lien vers notre fichier de style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Police d'écriture moderne (Google Fonts) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Bibliothèque pour lire le Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- En-tête -->
+        <header>
+            <h1>⚡ FlexScreener <span>Tertiaire</span></h1>
+            <p>Identifiez le potentiel d'effacement CVC des bâtiments B2B</p>
+            <button id="btnHelp" class="btn-secondary" style="margin-top: 15px;">📖 Comment ça marche ?</button>
+        </header>
+
+        <!-- Zone de recherche avec filtres -->
+        <section class="search-section card">
+            <div class="filters-container">
+                <div class="input-wrapper">
+                    <label for="inputCP">Code Postal</label>
+                    <input type="text" id="inputCP" placeholder="ex: 69003" maxlength="5">
+                </div>
+                
+                <div class="input-wrapper">
+                    <label for="inputSurface">Surface min. (m²)</label>
+                    <input type="number" id="inputSurface" value="500" step="100">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="inputSize">Taille échantillon</label>
+                    <select id="inputSize">
+                        <option value="100">100 (Très rapide)</option>
+                        <option value="500">500</option>
+                        <option value="1000" selected>1000 (Recommandé)</option>
+                        <option value="2500">2500 (Long, + de leads)</option>
+                    </select>
+                </div>
+
+                <button id="btnSearch">Lancer le scan</button>
+            </div>
+            <p id="statusMessage" class="status-message"></p>
+        </section>
+
+        <!-- Tableau des résultats -->
+        <section class="results-section card">
+        <div class="results-header">
+            <h2>Liste des Prospects</h2>
+            <button id="btnExport" class="btn-secondary" style="display: none;">📥 Exporter en CSV</button>
+        </div>
+
+        <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Entreprise (Sirene)</th>
+                        <th>Secteur & Adresse</th>
+                        <th>Surface</th>
+                        <th>Potentiel Flex.</th>
+                        <th>Gain Estimé</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Les résultats JavaScript s'afficheront ici -->
+                    <tr>
+                        <td colspan="5" class="empty-state">Aucune recherche en cours. Entrez un code postal ci-dessus.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+<!-- Fenêtre modale pour le README -->
+    <div id="readmeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="readmeBody" class="markdown-body">
+                <!-- Le contenu du README s'affichera ici -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Lien vers notre script -->
+    <script src="app.js"></script>
+</body>
+</html>
