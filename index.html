@@ -58,11 +58,17 @@
         <table id="resultsTable">
                 <thead>
                     <tr>
-                        <th>Entreprise (Sirene)</th>
+                      <th>Entreprise (Sirene)</th>
                         <th>Secteur & Adresse</th>
                         <th>Surface</th>
-                        <th>Potentiel Flex.</th>
-                        <th>Gain Estimé</th>
+                        <th>
+                            Potentiel Flex.
+                            <span class="tooltip-icon" data-tooltip="Calcul : (Surface × Ratio Thermique W/m² / 1000) × Taux d'effacement. Les ratios s'adaptent automatiquement au secteur.">i</span>
+                        </th>
+                        <th>
+                            Gain Estimé
+                            <span class="tooltip-icon" data-tooltip="Calcul : Potentiel Flexible (kW) × 50 €/kW/an (Valeur fixée selon le Mécanisme de Capacité RTE).">i</span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
